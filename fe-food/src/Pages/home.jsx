@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import LowerNavbar from "../Component/LowerNavbar";
 import Navbar from "../Component/Navbar";
-const home = () => {
+
+import { FoodContext } from "../Context/food";
+const Home = () => {
+  const name = useContext(FoodContext);
+  console.log(name);
   return (
     <section>
       <Navbar />
@@ -10,4 +14,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
