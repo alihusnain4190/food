@@ -4,7 +4,6 @@ const LowerNavbar = () => {
   return (
     <section className="lowernavbar">
       <div>
-        <i class="dpg-icon dpg-icon-menu-filter-veg"></i>
         <p>Vagitarian</p>
       </div>
       <div>

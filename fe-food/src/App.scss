@@ -3,6 +3,7 @@
 @import "./style/variable/variable";
 @import "./style/fonts/font";
 body {
+  background-color: black;
   font-family: $main-font;
   color: $main-color;
 }

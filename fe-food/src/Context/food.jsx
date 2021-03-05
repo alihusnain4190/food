@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { pizza, customise } from "../Utils/data";
 export const FoodContext = React.createContext();
 
 export default function ProductProvider({ children }) {
-  return <FoodContext.Provider value={pizza}>{children}</FoodContext.Provider>;
+  
+  const [isLoading, setLoading] = useState(true);
+  const [pizzas, setPizza] = useState(pizza);
+  
+  return (
+    <FoodContext.Provider value={{ isLoading, pizzas }}>
+      {children}
+    </FoodContext.Provider>
+  );
 }
