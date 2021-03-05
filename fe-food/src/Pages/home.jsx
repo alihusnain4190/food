@@ -11,7 +11,7 @@ const Home = () => {
     <section>
       <Navbar />
       <LowerNavbar />
-      {isLoading === false ? "...loading" : <Pizza  pizzas={pizzas} />}
+      {isLoading === false ? "...loading" : <Pizza pizzas={pizzas} />}
     </section>
   );
 };

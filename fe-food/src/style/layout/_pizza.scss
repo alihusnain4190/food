@@ -1,0 +1,31 @@
+@import "../button/button";
+.pizzas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0.5rem;
+  .pizzaList {
+    margin: 0.2rem;
+    img {
+      width: 160px;
+      height: 150px;
+    }
+    .pizzaList__size {
+      padding: 8px;
+      width: 160px;
+      .opt {
+        font-size: 15px;
+      }
+    }
+    .pizzaList__name {
+      display: flex;
+      margin-top: 5px;
+      p {
+        margin-right: 10px;
+      }
+      .btn-more {
+        @include button-more($base-color, $main-color);
+      }
+    }
+  }
+}

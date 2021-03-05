@@ -3,7 +3,7 @@ import PizzaList from "./PizzaList";
 
 const Pizza = ({ pizzas }) => {
   return (
-    <section>
+    <section className="pizzas">
       {pizzas.map((item) => {
         return <PizzaList key={item.p_id} {...item}></PizzaList>;
       })}

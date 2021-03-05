@@ -1,0 +1,19 @@
+@mixin button-more($bg,$text) {
+  background: $bg;
+  color:$text ;
+  &:hover {
+    background: darken($bg, 8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background: darken($bg, 25%);
+  }
+}
+.btn {
+  padding: 8px 8px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Poiret One", cursive;
+
+  display: inline-block;
+}

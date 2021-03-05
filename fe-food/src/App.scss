@@ -2,6 +2,8 @@
 @import "./style/layout/navbar";
 @import "./style/variable/variable";
 @import "./style/fonts/font";
+@import "./style/layout/pizza";
+@import "./style/button/button";
 body {
   background-color: black;
   font-family: $main-font;
