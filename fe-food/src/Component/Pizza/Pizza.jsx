@@ -5,7 +5,7 @@ const Pizza = ({ pizzas }) => {
   return (
     <section className="pizzas">
       {pizzas.map((item) => {
-        return <PizzaList key={item.p_id} {...item}></PizzaList>;
+        return <PizzaList key={item.p_id} item={item}></PizzaList>;
       })}
     </section>
   );

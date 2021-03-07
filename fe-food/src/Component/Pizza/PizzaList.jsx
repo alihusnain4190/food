@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "@reach/router";
-const PizzaList = ({ p_id, p_image, p_name, p_size }) => {
+const PizzaList = (props) => {
   const handleMore = () => {};
+  const { p_id, p_image, p_name, p_size } = props.item;
+
   return (
     <section className="pizzaList">
       <div>
@@ -20,7 +22,7 @@ const PizzaList = ({ p_id, p_image, p_name, p_size }) => {
       </div>
       <div className="pizzaList__name">
         <p>{p_name}</p>
-        <Link to={`customise/${p_id}`}>
+        <Link to={`customise/${p_id}`} state={{ item: props.item }}>
           <button className="btn btn-more" onClick={handleMore}>
             More Info
           </button>
