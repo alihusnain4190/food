@@ -1,3 +1,7 @@
 $base-color: #da291c;
 $main-color: #fff;
 $lowernav-color: #0076ab;
+
+@mixin margin-left($variable) {
+  margin-left: $variable;
+}

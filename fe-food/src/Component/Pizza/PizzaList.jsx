@@ -1,6 +1,7 @@
 import React from "react";
-
+import { Link } from "@reach/router";
 const PizzaList = ({ p_id, p_image, p_name, p_size }) => {
+  const handleMore = () => {};
   return (
     <section className="pizzaList">
       <div>
@@ -11,7 +12,7 @@ const PizzaList = ({ p_id, p_image, p_name, p_size }) => {
           {p_size.map(({ size, price }) => {
             return (
               <option value={size} className="opt">
-                {size} &nbsp; {price}&#163;
+                {size} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {price}&#163;
               </option>
             );
           })}
@@ -19,11 +20,15 @@ const PizzaList = ({ p_id, p_image, p_name, p_size }) => {
       </div>
       <div className="pizzaList__name">
         <p>{p_name}</p>
-        <button className="btn btn-more">More Info</button>
+        <Link to={`customise/${p_id}`}>
+          <button className="btn btn-more" onClick={handleMore}>
+            More Info
+          </button>
+        </Link>
       </div>
-      <div>
-        <button>customize</button>
-        <button>Add</button>
+      <div className="pizzaList__add">
+        <button className="btn btn-customize ml">CUSTOMISE</button>
+        <button className="btn btn-more">SELECT</button>
       </div>
     </section>
   );

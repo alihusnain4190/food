@@ -1,6 +1,6 @@
-@mixin button-more($bg,$text) {
+@mixin button-more($bg, $text) {
   background: $bg;
-  color:$text ;
+  color: $text;
   &:hover {
     background: darken($bg, 8%);
     transition: all 0.3s ease;
@@ -10,8 +10,8 @@
   }
 }
 .btn {
-  padding: 8px 8px;
-  border-radius: 10px;
+  padding: 8px 16px;
+  border-radius: 5px;
   text-align: center;
   font-family: "Poiret One", cursive;
 
