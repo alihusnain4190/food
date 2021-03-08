@@ -2,15 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 const Discription = (props) => {
   console.log(props.location.state.item);
-  const {
-    p_id,
-    p_image,
-    p_sing,
-    p_name,
-    p_size,
-    topping,
-    dip,
-  } = props.location.state.item;
+  const { p_id, p_image, p_name, dip } = props.location.state.item;
   return (
     <section key={p_id} className="readMore">
       <img src={p_image} alt={p_name}></img>

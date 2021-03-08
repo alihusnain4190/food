@@ -32,7 +32,6 @@ const PizzaList = (props) => {
       <div className="pizzaList__add">
         <button className="btn btn-customize ml">CUSTOMISE</button>
 
-        {/* <Link to="/cart"> */}
         <button
           className="btn btn-more"
           onClick={() => {
@@ -41,7 +40,6 @@ const PizzaList = (props) => {
         >
           SELECT
         </button>
-        {/* </Link> */}
       </div>
     </section>
   );

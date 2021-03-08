@@ -7,8 +7,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__text">
-        <a href="/">Pizza</a>
-        <a href="#">Drinks</a>
+        <Link to="/">Pizza</Link>
+        <Link to="#">Drinks</Link>
       </div>
       <div className="navbar__cart">
         <Link to="/cart">

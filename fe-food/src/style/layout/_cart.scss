@@ -1,5 +1,4 @@
 .cart {
-  background-color: gray;
   .cart_container {
     display: flex;
     margin-top: 10px;
@@ -12,7 +11,7 @@
       height: 70px;
     }
     p {
-      margin-left: 10px;
+      margin-left: 5px;
       font-size: 12px;
     }
     .minus {
@@ -38,5 +37,17 @@
       width: 100px;
       height: 30px;
     }
+    .price {
+      margin-right: 5px;
+      font-size: 16px;
+    }
+  }
+}
+.cartTotal {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  p {
+    font-size: 20px;
   }
 }

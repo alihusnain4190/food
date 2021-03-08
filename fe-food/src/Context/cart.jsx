@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 const CartContext = React.createContext();
 function CartProvider({ children }) {
   let data = [
@@ -16,10 +16,49 @@ function CartProvider({ children }) {
   ];
   const [carts, setCarts] = useState([]);
   const [pizzaPirce, setPizzaPrice] = useState(0);
-  const totalItem = carts.length;
+  const [totalItem, setTotalItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    const total = carts.reduce((acc, cur) => {
+      acc = acc + cur.p_amount;
+    }, 0);
+    setTotalItem(total);
+    let newTotal = carts.reduce((acc, cur) => {
+      return (acc = acc + cur.p_amount * cur.p_price);
+    }, 0);
+    setTotalPrice(newTotal);
+  }, [carts]);
   const pizzaSizePrice = (price) => {
     setPizzaPrice(price);
+  };
+  const increaseItem = (id) => {
+    const newCart = carts.map((item) => {
+      if (item.p_id === id) {
+        item.p_amount = item.p_amount + 1;
+      }
+      return item;
+    });
+    setCarts(newCart);
+  };
+  const removeItem = (id) => {
+    const newCart = carts.filter((item) => {
+      if (item.p_id !== id) return item;
+    });
+    setCarts(newCart);
+  };
+  const dereaseItem = (id, amount) => {
+    console.log(amount);
+    if (amount === 1) {
+      removeItem(id);
+    } else {
+      const newCart = carts.filter((item) => {
+        if (item.p_id === id) {
+          item.p_amount = item.p_amount - 1;
+        }
+        return item;
+      });
+      setCarts(newCart);
+    }
   };
   const hadnleAdd = (pizza) => {
     const { p_id, p_image, p_name } = pizza;
@@ -27,14 +66,28 @@ function CartProvider({ children }) {
     if (pizzaPirce === 0) {
       price = pizza.p_size[0].price;
     }
-    let obj = { p_id, p_image, p_name, p_price: price, p_amount: 1 };
-    const newCart = [...carts, obj];
-    setTotalPrice(totalPrice + parseInt(price));
-    setCarts(newCart);
+    const alreadyInCart = carts.find((item) => item.p_id === p_id);
+    if (alreadyInCart) {
+      increaseItem(p_id);
+    } else {
+      let obj = { p_id, p_image, p_name, p_price: price, p_amount: 1 };
+      const newCart = [...carts, obj];
+
+      setCarts(newCart);
+    }
   };
   return (
     <CartContext.Provider
-      value={{ carts, totalItem, totalPrice, hadnleAdd, pizzaSizePrice }}
+      value={{
+        carts,
+        totalItem,
+        totalPrice,
+        hadnleAdd,
+        pizzaSizePrice,
+        increaseItem,
+        dereaseItem,
+        removeItem,
+      }}
     >
       {children}
     </CartContext.Provider>
