@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "@reach/router";
 import { FaCartPlus } from "react-icons/fa";
 import { CartContext } from "../Context/cart";
 const Navbar = () => {
@@ -10,7 +11,10 @@ const Navbar = () => {
         <a href="#">Drinks</a>
       </div>
       <div className="navbar__cart">
-        <FaCartPlus className="cart" />
+        <Link to="/cart">
+          <FaCartPlus className="cart" />
+        </Link>
+
         <p>{totalItem}</p>
       </div>
     </nav>

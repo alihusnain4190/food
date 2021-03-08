@@ -14,20 +14,27 @@ function CartProvider({ children }) {
       dip: "Garlic dip",
     },
   ];
-  const [carts, setCarts] = useState(data);
+  const [carts, setCarts] = useState([]);
   const [pizzaPirce, setPizzaPrice] = useState(0);
   const totalItem = carts.length;
+  const [totalPrice, setTotalPrice] = useState(0);
   const pizzaSizePrice = (price) => {
     setPizzaPrice(price);
   };
-  const hadnleAdd = (data) => {
-    const { p_id, p_image, dip, p_size } = data;
-    let obj = { p_id, p_image, p_size, price: pizzaPirce, dip };
-    console.log(obj);
+  const hadnleAdd = (pizza) => {
+    const { p_id, p_image, p_name } = pizza;
+    let price = pizzaPirce;
+    if (pizzaPirce === 0) {
+      price = pizza.p_size[0].price;
+    }
+    let obj = { p_id, p_image, p_name, p_price: price, p_amount: 1 };
+    const newCart = [...carts, obj];
+    setTotalPrice(totalPrice + parseInt(price));
+    setCarts(newCart);
   };
   return (
     <CartContext.Provider
-      value={{ carts, totalItem, hadnleAdd, pizzaSizePrice }}
+      value={{ carts, totalItem, totalPrice, hadnleAdd, pizzaSizePrice }}
     >
       {children}
     </CartContext.Provider>

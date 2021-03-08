@@ -1,3 +1,42 @@
 .cart {
   background-color: gray;
+  .cart_container {
+    display: flex;
+    margin-top: 10px;
+    margin: 5px;
+    img {
+      margin-top: 2px;
+      border-radius: 5px;
+      margin-bottom: 2px;
+      width: 70px;
+      height: 70px;
+    }
+    p {
+      margin-left: 10px;
+      font-size: 12px;
+    }
+    .minus {
+      margin-left: 10px;
+
+      margin-top: 10px;
+      margin-bottom: 3px;
+      width: 10px;
+      height: 30px;
+    }
+    .plus {
+      margin-left: 10px;
+
+      margin-top: 10px;
+      margin-bottom: 3px;
+      width: 10px;
+      height: 30px;
+    }
+    .remove {
+      margin-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 3px;
+      width: 100px;
+      height: 30px;
+    }
+  }
 }

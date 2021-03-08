@@ -32,16 +32,16 @@ const PizzaList = (props) => {
       <div className="pizzaList__add">
         <button className="btn btn-customize ml">CUSTOMISE</button>
 
-        <Link to="/cart">
-          <button
-            className="btn btn-more"
-            onClick={() => {
-              hadnleAdd(props.item);
-            }}
-          >
-            SELECT
-          </button>
-        </Link>
+        {/* <Link to="/cart"> */}
+        <button
+          className="btn btn-more"
+          onClick={() => {
+            hadnleAdd(props.item);
+          }}
+        >
+          SELECT
+        </button>
+        {/* </Link> */}
       </div>
     </section>
   );
