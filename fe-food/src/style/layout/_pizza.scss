@@ -5,7 +5,9 @@
   flex-wrap: wrap;
   margin: 0.5rem;
   .pizzaList {
-    border: 1px solid orange;
+    border-radius: 4px;
+    border: 1px double gray;
+
     margin: 0.5rem;
     img {
       margin: 10px;
@@ -36,11 +38,11 @@
       display: flex;
       justify-content: space-evenly;
       margin-top: 5px;
+      margin-bottom: 5px;
       .btn-more {
         @include button-more($lowernav-color, $main-color);
         @include margin-left(4px);
         font-size: large;
-      
       }
     }
   }

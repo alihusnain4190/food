@@ -9,8 +9,6 @@ const Home = () => {
 
   return (
     <section>
-      <Navbar />
-      <LowerNavbar />
       {isLoading === false ? "...loading" : <Pizza pizzas={pizzas} />}
     </section>
   );

@@ -4,8 +4,10 @@
 @import "./style/fonts/font";
 @import "./style/layout/pizza";
 @import "./style/button/button";
+@import "./style/layout/readmore";
+@import "./style/layout/cart";
 body {
-  background-color: black;
+  background-color: whitesmoke;
   font-family: $main-font;
-  color: $main-color;
+  color: #000;
 }

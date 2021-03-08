@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "@reach/router";
+import { CartContext } from "../../Context/cart";
 const PizzaList = (props) => {
-  const handleMore = () => {};
   const { p_id, p_image, p_name, p_size } = props.item;
-
+  const { hadnleAdd, pizzaSizePrice } = useContext(CartContext);
+  const handleChange = (e) => {
+    pizzaSizePrice(e.target.value);
+  };
   return (
     <section className="pizzaList">
       <div>
         <img className="img" src={p_image} alt={p_name}></img>
       </div>
       <div>
-        <select className="pizzaList__size">
+        <select className="pizzaList__size" onChange={handleChange}>
           {p_size.map(({ size, price }) => {
             return (
-              <option value={size} className="opt">
+              <option value={price} className="opt">
                 {size} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {price}&#163;
               </option>
             );
@@ -22,15 +25,23 @@ const PizzaList = (props) => {
       </div>
       <div className="pizzaList__name">
         <p>{p_name}</p>
-        <Link to={`customise/${p_id}`} state={{ item: props.item }}>
-          <button className="btn btn-more" onClick={handleMore}>
-            More Info
-          </button>
+        <Link to={`discription/${p_id}`} state={{ item: props.item }}>
+          <button className="btn btn-more">More Info</button>
         </Link>
       </div>
       <div className="pizzaList__add">
         <button className="btn btn-customize ml">CUSTOMISE</button>
-        <button className="btn btn-more">SELECT</button>
+
+        <Link to="/cart">
+          <button
+            className="btn btn-more"
+            onClick={() => {
+              hadnleAdd(props.item);
+            }}
+          >
+            SELECT
+          </button>
+        </Link>
       </div>
     </section>
   );

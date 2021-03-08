@@ -1,6 +1,6 @@
 import React from "react";
-
-const Customise = (props) => {
+import { Link } from "@reach/router";
+const Discription = (props) => {
   console.log(props.location.state.item);
   const {
     p_id,
@@ -12,7 +12,7 @@ const Customise = (props) => {
     dip,
   } = props.location.state.item;
   return (
-    <section key={p_id}>
+    <section key={p_id} className="readMore">
       <img src={p_image} alt={p_name}></img>
       <p>{p_name}</p>
       <p>{dip}</p>
@@ -22,8 +22,11 @@ const Customise = (props) => {
         molestiae, corrupti dolor cum, repellat dignissimos quas deserunt harum
         fuga at!
       </p>
+      <Link to="/">
+        <button className="btn btn-more">Go Back</button>
+      </Link>
     </section>
   );
 };
 
-export default Customise;
+export default Discription;
