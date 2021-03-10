@@ -12,10 +12,11 @@ const Navbar = () => {
       </div>
       <div className="navbar__cart">
         <Link to="/cart">
-          <FaCartPlus className="cart" />
+          <FaCartPlus className="cart" size={30} />
         </Link>
-
-        <p>{totalItem}</p>
+        <span className="badge badge-warning lblCartCount" id="lblCartCount">
+          {totalItem}
+        </span>
       </div>
     </nav>
   );

@@ -19,9 +19,8 @@ function CartProvider({ children }) {
   const [totalItem, setTotalItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
-    const total = carts.reduce((acc, cur) => {
-      acc = acc + cur.p_amount;
-    }, 0);
+    const total = carts.reduce((acc, cur) => (acc = acc + cur.p_amount), 0);
+
     setTotalItem(total);
     let newTotal = carts.reduce((acc, cur) => {
       return (acc = acc + cur.p_amount * cur.p_price);

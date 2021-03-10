@@ -6,6 +6,9 @@
 @import "./style/button/button";
 @import "./style/layout/readmore";
 @import "./style/layout/cart";
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: whitesmoke;
   font-family: $main-font;

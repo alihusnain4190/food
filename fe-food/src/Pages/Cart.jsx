@@ -11,7 +11,65 @@ const Cart = () => {
   return (
     <>
       <section className="cart">
-        {carts.map((item) => {
+        <table>
+          <tbody>
+            {carts.map((item) => {
+              return (
+                <tr key={item.p_name} className="cart_container">
+                  <td>
+                    <img src={item.p_image} alt={item.p_name} />
+                  </td>
+                  <td>
+                    <p>{item.p_name}</p>
+                  </td>
+                  <td className="cart_button">
+                    <button
+                      onClick={() => {
+                        dereaseItem(item.p_id, item.p_amount);
+                      }}
+                      className="minus"
+                    >
+                      -
+                    </button>
+                    <p>{item.p_amount}</p>
+                    <button
+                      onClick={() => {
+                        increaseItem(item.p_id);
+                      }}
+                      className="plus"
+                    >
+                      +
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        removeItem(item.p_id);
+                      }}
+                      className="remove"
+                    >
+                      REMOVE
+                    </button>
+                  </td>
+                  <td>
+                    <p className="price">
+                      {item.p_amount * item.p_price}&#163;
+                    </p>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </section>
+      <div className="cartTotal">
+        <p>Total</p>
+        <p>{totalPrice}&#163;</p>
+      </div>
+    </>
+  );
+};
+/* {carts.map((item) => {
           return (
             <>
               <div key={item.p_id} className="cart_container">
@@ -46,14 +104,14 @@ const Cart = () => {
               </div>
             </>
           );
-        })}
-      </section>
-      <div className="cartTotal">
-        <p>Total</p>
-        <p>{totalPrice}&#163;</p>
-      </div>
-    </>
-  );
-};
+        })} */
+//   </section>
+//   <div className="cartTotal">
+//     <p>Total</p>
+//     <p>{totalPrice}&#163;</p>
+//   </div>
+// </>
+// );
+// };
 
 export default Cart;
