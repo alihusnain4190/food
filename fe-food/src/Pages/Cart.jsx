@@ -20,7 +20,7 @@ const Cart = () => {
                     <img src={item.p_image} alt={item.p_name} />
                   </td>
                   <td>
-                    <p>{item.p_name}</p>
+                    <p className="pizza__amount">{item.p_name}</p>
                   </td>
                   <td className="cart_button">
                     <button
@@ -31,7 +31,7 @@ const Cart = () => {
                     >
                       -
                     </button>
-                    <p>{item.p_amount}</p>
+                    <p className="pizza__amount">{item.p_amount}</p>
                     <button
                       onClick={() => {
                         increaseItem(item.p_id);

@@ -7,8 +7,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__text">
-        <Link to="/">Pizza</Link>
-        <Link to="#">Drinks</Link>
+        <Link to="/">
+          <span className="navbar__size">Pizza</span>
+        </Link>
+        <Link to="#">
+          <span className="navbar__size">Drinks</span>
+        </Link>
       </div>
       <div className="navbar__cart">
         <Link to="/cart">
