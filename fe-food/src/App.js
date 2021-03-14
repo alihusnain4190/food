@@ -6,16 +6,22 @@ import { Router } from "@reach/router";
 import LowerNavbar from "./Component/LowerNavbar";
 import Navbar from "./Component/Navbar";
 import Cart from "./Pages/Cart";
+import SignUp from "./Pages/SignUp";
+import Header from "./Component/Header";
+
 function App() {
   return (
     <div className="App">
+      <Header />
       <Navbar />
       <LowerNavbar />
+
       <Router>
         <Home path="/" />
         <Discription path="/discription/:id" />
         {/* <Customsie path="/customise" /> */}
-        <Cart path="/cart"/>
+        <Cart path="/cart" />
+        <SignUp path="/signup" />
       </Router>
     </div>
   );

@@ -1,10 +1,11 @@
-import React from 'react';
-
+import React from "react";
+import { Link } from "@reach/router";
 const Header = () => {
   return (
-    <div>
-      header user login
-    </div>
+    <section>
+      <h1>My name is </h1>
+      <Link to="/signup">Sign Up</Link>
+    </section>
   );
 };
 
