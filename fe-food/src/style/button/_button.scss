@@ -1,6 +1,7 @@
 @mixin button-more($bg, $text) {
   background: $bg;
   color: $text;
+  text-decoration: none;
   &:hover {
     background: darken($bg, 8%);
     transition: all 0.3s ease;

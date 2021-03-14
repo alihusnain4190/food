@@ -1,4 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
+import { Link } from "@reach/router";
 import { AuthContext } from "../../Context/user";
 const Signups = () => {
   const { signup, currentUser } = useContext(AuthContext);
@@ -10,27 +11,26 @@ const Signups = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      console.log("error password do not match");
-      setError("Your password is not matching");
-    }
-    try {
-      setError("");
-      setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
-    } catch {
-      console.log("fail to create account");
-      setError("account is not creating");
+      setError("password should be longer then 6 character");
+    } else {
+      try {
+        setError("");
+        setLoading(true);
+        await signup(emailRef.current.value, passwordRef.current.value);
+      } catch {
+        setError("account is not creating");
+      }
     }
   }
 
   return (
     <>
-      {/* {error ? { error } : null} */}
       {JSON.stringify(currentUser)}
+
       <form onSubmit={handleSubmit}>
         <div class="container">
           <h1>Sign Up</h1>
-          <p>Please fill this form </p>
+          <p>Please fill in this form to create an account. </p>
           <label for="email">Email</label>
           <input
             type="text"
@@ -59,10 +59,19 @@ const Signups = () => {
             ref={passwordConfirmRef}
             required
           />
-          <div class="clearfix">
-            <button type="submit" class="signupbtn">
+
+          {error && <p className="error">{error}</p>}
+          <div className="clearfix">
+            <button className="btn btn-more" type="submit">
               Sign Up
             </button>
+          </div>
+          <div className="signup__login">
+            <p>Already have a account</p>
+
+            <Link to="/" className="btn btn-more">
+              Login
+            </Link>
           </div>
         </div>
       </form>
