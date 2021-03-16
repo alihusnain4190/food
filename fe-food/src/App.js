@@ -8,20 +8,24 @@ import Navbar from "./Component/Navbar";
 import Cart from "./Pages/Cart";
 import SignUp from "./Pages/SignUp";
 import Header from "./Component/Header";
-
+import Login from "./Pages/Login";
+import PrivateRoute from "./Component/PrivateRoute";
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Navbar />
       <LowerNavbar />
-
+      <PrivateRoute exect as={Header} />
       <Router>
-        <Home path="/" />
+        {/* <Home path="/" /> */}
+
+        <SignUp path="/signup" />
+        <Login path="login" />
+        <PrivateRoute exect as={Home} path="/" />
         <Discription path="/discription/:id" />
         {/* <Customsie path="/customise" /> */}
         <Cart path="/cart" />
-        <SignUp path="/signup" />
       </Router>
     </div>
   );

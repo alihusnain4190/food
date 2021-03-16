@@ -2,27 +2,22 @@ import React, { useContext, useRef, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import { AuthContext } from "../../Context/user";
 const Signups = () => {
-  const { signup, setBool, currentUser } = useContext(AuthContext);
+  const { login, currentUser, setBool } = useContext(AuthContext);
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
   async function handleSubmit(e) {
     e.preventDefault();
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      setError("password should be longer then 6 character");
-    } else {
-      try {
-        setError("");
-        setLoading(true);
-        await signup(emailRef.current.value, passwordRef.current.value);
-        navigate(`/`);
-        setBool(true);
-      } catch {
-        setError("account is not creating");
-        setBool(false);
-      }
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      navigate(`/`);
+      setBool(true);
+    } catch {
+      setError("account is not creating");
+      setBool(false);
     }
   }
 
@@ -30,8 +25,7 @@ const Signups = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div class="container">
-          <h1>Sign Up</h1>
-          <p>Please fill in this form to create an account. </p>
+          <h1>Login</h1>
           <label for="email">Email</label>
           <input
             type="text"
@@ -50,28 +44,21 @@ const Signups = () => {
             required
             ref={passwordRef}
           />
-          <label for="psw-repeat">
-            <b>Repeat Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Repeat Password"
-            name="psw-repeat"
-            ref={passwordConfirmRef}
-            required
-          />
 
           {error && <p className="error">{error}</p>}
           <div className="clearfix">
             <button className="btn btn-more" type="submit">
-              Sign Up
+              Login
             </button>
           </div>
+          <div>
+            <Link to="forget-password">Forget Password</Link>
+          </div>
           <div className="signup__login">
-            <p>Already have a account</p>
+            <p>Need a account</p>
 
-            <Link to="/login" className="btn btn-more">
-              Login
+            <Link to="/signup" className="btn btn-more">
+              Sign up
             </Link>
           </div>
         </div>
