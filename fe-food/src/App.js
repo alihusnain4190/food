@@ -10,6 +10,7 @@ import SignUp from "./Pages/SignUp";
 import Header from "./Component/Header";
 import Login from "./Pages/Login";
 import PrivateRoute from "./Component/PrivateRoute";
+import ForgotPassword from "./Pages/ForgotPassword";
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
 
         <SignUp path="/signup" />
         <Login path="login" />
+        <ForgotPassword path="forget-password" />
         <PrivateRoute exect as={Home} path="/" />
         <Discription path="/discription/:id" />
         {/* <Customsie path="/customise" /> */}

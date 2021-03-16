@@ -1,23 +1,29 @@
+// import React from "react";
+
+// const ForgotPasswords = () => {
+//   return <div>hello</div>;
+// };
+
+// export default ForgotPasswords;
+
 import React, { useContext, useRef, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import { AuthContext } from "../../Context/user";
-const Signups = () => {
-  const { login, currentUser, setBool } = useContext(AuthContext);
+const ForgotPasswords = () => {
+  const { login, currentUser, resetPassword } = useContext(AuthContext);
   const emailRef = useRef();
-  const passwordRef = useRef();
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [messege, setMessege] = useState("");
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      navigate(`/`);
-      setBool(true);
+      setMessege("Check your email for further instruction");
+      await resetPassword(emailRef.current.value);
     } catch {
-      setError("account is not creating");
-      setBool(false);
+      setError("Failed to reset password");
     }
   }
 
@@ -25,7 +31,8 @@ const Signups = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div class="container">
-          <h1>Login</h1>
+          <h1>Password Reset</h1>
+          {messege && <p className="error">{messege}</p>}
           <label for="email">Email</label>
           <input
             type="text"
@@ -34,25 +41,14 @@ const Signups = () => {
             name="email"
             required
           />
-          <label for="psw">
-            <b>Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="psw"
-            required
-            ref={passwordRef}
-          />
-
           {error && <p className="error">{error}</p>}
           <div className="clearfix">
             <button className="btn btn-more" type="submit">
-              Login
+              Reset Password
             </button>
           </div>
           <div>
-            <Link to="/forget-password">Forget Password?</Link>
+            <Link to="/login">Login</Link>
           </div>
           <div className="signup__login">
             <p>Need a account</p>
@@ -67,4 +63,4 @@ const Signups = () => {
   );
 };
 
-export default Signups;
+export default ForgotPasswords;

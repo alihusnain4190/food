@@ -14,6 +14,9 @@ export function AuthProvider({ children }) {
   function logout() {
     return auth.signOut();
   }
+  function resetPassword(email) {
+    return auth.sendPasswordResetEmail(email);
+  }
   useEffect(() => {
     //fire base set user
     const unsubcribe = auth.onAuthStateChanged((user) => {
@@ -31,6 +34,7 @@ export function AuthProvider({ children }) {
     logout,
     bool,
     setBool,
+    resetPassword,
   };
   return (
     <AuthContext.Provider value={value}>
