@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <section>
-      {isLoading === false ? "...loading" : <Pizza pizzas={pizzas} />}
+      {isLoading === true ? "...loading" : <Pizza pizzas={pizzas} />}
     </section>
   );
 };

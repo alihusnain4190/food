@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import { CartContext } from "../../Context/cart";
 const PizzaList = (props) => {
   const { p_id, p_image, p_name, p_size } = props.item;
+
   const { hadnleAdd, pizzaSizePrice } = useContext(CartContext);
   const handleChange = (e) => {
     pizzaSizePrice(e.target.value);

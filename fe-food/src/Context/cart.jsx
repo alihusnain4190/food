@@ -71,7 +71,7 @@ function CartProvider({ children }) {
     } else {
       let obj = { p_id, p_image, p_name, p_price: price, p_amount: 1 };
       const newCart = [...carts, obj];
-
+      console.log(newCart);
       setCarts(newCart);
     }
   };
