@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "@reach/router";
 import { CartContext } from "../Context/cart";
 const Cart = () => {
   const {
@@ -66,6 +67,9 @@ const Cart = () => {
         <p>Total</p>
         <p>{totalPrice}&#163;</p>
       </div>
+      <Link to="/purchase">
+        <button className="btn">Purchase</button>
+      </Link>
     </>
   );
 };

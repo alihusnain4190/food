@@ -11,6 +11,7 @@ import Header from "./Component/Header";
 import Login from "./Pages/Login";
 import PrivateRoute from "./Component/PrivateRoute";
 import ForgotPassword from "./Pages/ForgotPassword";
+import Purchase from "./Pages/Purchase";
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App() {
         <Discription path="/discription/:id" />
         {/* <Customsie path="/customise" /> */}
         <Cart path="/cart" />
+        <Purchase path="/purchase" />
       </Router>
     </div>
   );

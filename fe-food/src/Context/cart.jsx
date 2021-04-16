@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 const CartContext = React.createContext();
 function CartProvider({ children }) {
   let data = [
