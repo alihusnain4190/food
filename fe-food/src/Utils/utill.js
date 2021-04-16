@@ -24,4 +24,8 @@ function setPizzaSizePrice(data) {
   }
   return newArr;
 }
-module.exports = setPizzaSizePrice;
+function setDrinkSizePrice(data) {
+  console.log(data);
+  for (let i = 0; i < data.length; i++) {}
+}
+module.exports = { setPizzaSizePrice, setDrinkSizePrice };

@@ -18,6 +18,7 @@ function CartProvider({ children }) {
   const [pizzaPirce, setPizzaPrice] = useState(0);
   const [totalItem, setTotalItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [drinkPrice, setDrinkPrice] = useState(0);
   useEffect(() => {
     const total = carts.reduce((acc, cur) => (acc = acc + cur.p_amount), 0);
 
@@ -29,6 +30,10 @@ function CartProvider({ children }) {
   }, [carts]);
   const pizzaSizePrice = (price) => {
     setPizzaPrice(price);
+  };
+  const drinkSizePrice = (price) => {
+    console.log(price);
+    setDrinkPrice(price);
   };
   const increaseItem = (id) => {
     const newCart = carts.map((item) => {
@@ -46,7 +51,6 @@ function CartProvider({ children }) {
     setCarts(newCart);
   };
   const dereaseItem = (id, amount) => {
-    console.log(amount);
     if (amount === 1) {
       removeItem(id);
     } else {
@@ -62,16 +66,26 @@ function CartProvider({ children }) {
   const hadnleAdd = (pizza) => {
     const { p_id, p_image, p_name } = pizza;
     let price = pizzaPirce;
+    let dprice = 0;
     if (pizzaPirce === 0) {
       price = pizza.p_size[0].price;
+      dprice = drinkPrice;
     }
     const alreadyInCart = carts.find((item) => item.p_id === p_id);
     if (alreadyInCart) {
       increaseItem(p_id);
     } else {
-      let obj = { p_id, p_image, p_name, p_price: price, p_amount: 1 };
+      let obj = {
+        p_id,
+        p_image,
+        p_name,
+        p_price: price,
+        p_amount: 1,
+        d_price: dprice,
+      };
+      // console.log(obj);
       const newCart = [...carts, obj];
-      console.log(newCart);
+
       setCarts(newCart);
     }
   };
@@ -86,6 +100,7 @@ function CartProvider({ children }) {
         increaseItem,
         dereaseItem,
         removeItem,
+        drinkSizePrice,
       }}
     >
       {children}

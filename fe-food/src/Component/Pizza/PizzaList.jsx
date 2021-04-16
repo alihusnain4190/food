@@ -4,9 +4,12 @@ import { CartContext } from "../../Context/cart";
 const PizzaList = (props) => {
   const { p_id, p_image, p_name, p_size } = props.item;
 
-  const { hadnleAdd, pizzaSizePrice } = useContext(CartContext);
+  const { hadnleAdd, pizzaSizePrice, drinkSizePrice } = useContext(CartContext);
   const handleChange = (e) => {
     pizzaSizePrice(e.target.value);
+  };
+  const handleDrinkChange = (e) => {
+    drinkSizePrice(e.target.value);
   };
   return (
     <section className="pizzaList">
@@ -23,6 +26,15 @@ const PizzaList = (props) => {
             );
           })}
         </select>
+        {/* <select className="pizzaList__size" onChange={handleDrinkChange}>
+          {props.drinks.map(({ d_id, d_name, d_pirce }) => {
+            return (
+              <option value={d_pirce} className="opt">
+                {d_name} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {d_pirce}&#163;
+              </option>
+            );
+          })}
+        </select> */}
       </div>
       <div className="pizzaList__name">
         <p>{p_name}</p>
