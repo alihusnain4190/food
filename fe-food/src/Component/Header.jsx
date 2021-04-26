@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import { AuthContext } from "../Context/user";
-
 const Header = () => {
-  const { bool, currentUser, logout } = useContext(AuthContext);
+  const { bool, currentUser, logout, user } = useContext(AuthContext);
   const [error, setError] = useState("");
+  console.log(currentUser.email);
   async function handleLogout(e) {
     e.preventDefault();
     try {
@@ -15,29 +15,24 @@ const Header = () => {
       setError("failed to logout");
     }
   }
-
   if (currentUser) {
+    return (
+      <header className="header">
+        <h4 className="header__user">{user.toUpperCase()}</h4>
+        <button className="btn btn-more" onClick={handleLogout}>
+          Logout
+        </button>
+      </header>
+    );
+  } else {
     return (
       <section>
         <h1>My name is </h1>
-        <p>
-          Email:
-          {JSON.stringify(currentUser.email)}
-        </p>
-        <button onClick={handleLogout}>Logout</button>
+        <Link to="/signup">Sign Up</Link>
+        <Link to="/login">Login</Link>
       </section>
     );
   }
-    else{
-      return (
-        <section>
-          <h1>My name is </h1>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/login">Login</Link>
-        </section>
-      );
-    }
-  }
-
+};
 
 export default Header;

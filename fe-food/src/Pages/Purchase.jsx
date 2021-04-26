@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -7,12 +7,18 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-console.log(process.env.REACT_APP_FIREBASE_API_KEY);
-console.log(process.env.REACT_APP_STRIPE_KEY)
+import { CartContext } from "../Context/cart";
+import { AuthContext } from "../Context/user";
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 const CheckOutForm = ({ success, errors }) => {
+  const { totalPrice } = useContext(CartContext);
+  const { user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
+
+  const addressRef = useRef();
+  const postCodeRef = useRef();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -22,23 +28,50 @@ const CheckOutForm = ({ success, errors }) => {
     });
     if (!error) {
       const { id } = paymentMethod;
+
       try {
         const { data } = await axios.post(
-          "http://localhost:9090/api/purchase",
-          { id, amount: 1099 }
+          "http://be-pizza.herokuapp.com/api/purchase",
+          {
+            id,
+            amount: parseInt(totalPrice * 100),
+            address: addressRef.current.value,
+            postcode: postCodeRef.current.value,
+            user,
+          }
         );
-        console.log(data);
+        // console.log(data);
         success();
       } catch (error) {
-        console.log("al");
-        console.log(error);
         errors();
       }
     }
   };
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: "400", margin: "0 auto" }}>
-      <h1>Total amount to pay</h1>
+      <h4>Total amount to pay: {totalPrice}</h4>
+      <label for="address">
+        <b>Enter your street address</b>
+      </label>
+      <input
+        type="text"
+        ref={addressRef}
+        placeholder="Enter your hosue number"
+        name="email"
+        // onChange={handleChange}
+        required
+      />
+      <label for="postcode">
+        <b>Enter your postcode</b>
+      </label>
+      <input
+        type="text"
+        placeholder="Enter your postcode"
+        name="psw"
+        required
+        ref={postCodeRef}
+      />
+
       <CardElement />
       <button type="submit" disabled={!stripe}>
         Pay

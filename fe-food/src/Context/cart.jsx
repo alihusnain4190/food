@@ -20,6 +20,9 @@ function CartProvider({ children }) {
   const [totalItem, setTotalItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [drinkPrice, setDrinkPrice] = useState(0);
+  console.log(pizzaPirce);
+  console.log(totalPrice)
+
   useEffect(() => {
     const total = carts.reduce((acc, cur) => (acc = acc + cur.p_amount), 0);
 
@@ -33,7 +36,6 @@ function CartProvider({ children }) {
     setPizzaPrice(price);
   };
   const drinkSizePrice = (price) => {
-    console.log(price);
     setDrinkPrice(price);
   };
   const increaseItem = (id) => {
