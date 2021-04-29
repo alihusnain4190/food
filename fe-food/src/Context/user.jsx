@@ -4,7 +4,7 @@ export const AuthContext = React.createContext();
 export function AuthProvider({ children }) {
   const [bool, setBool] = useState(false);
   const [currentUser, setCurrentUser] = useState();
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("Ali");
   const [loading, setLoading] = useState(true);
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);

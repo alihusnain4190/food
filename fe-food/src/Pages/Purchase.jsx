@@ -1,3 +1,4 @@
+import { Link } from "@reach/router";
 import React, { useContext, useRef, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -48,10 +49,14 @@ const CheckOutForm = ({ success, errors }) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: "400", margin: "0 auto" }}>
-      <h4>Total amount to pay: {totalPrice}</h4>
-      <label for="address">
-        <b>Enter your street address</b>
+    <form
+      onSubmit={handleSubmit}
+      className="purchase"
+      style={{ maxWidth: "400", margin: "0 auto" }}
+    >
+      <h4 className="purchase__h4">Total Charges pay: {totalPrice}</h4>
+      <label className="purchase__label" for="address">
+        <b>Street address</b>
       </label>
       <input
         type="text"
@@ -61,8 +66,8 @@ const CheckOutForm = ({ success, errors }) => {
         // onChange={handleChange}
         required
       />
-      <label for="postcode">
-        <b>Enter your postcode</b>
+      <label for="postcode" className="purchase__label">
+        <b>Enter postcode</b>
       </label>
       <input
         type="text"
@@ -73,7 +78,11 @@ const CheckOutForm = ({ success, errors }) => {
       />
 
       <CardElement />
-      <button type="submit" disabled={!stripe}>
+      <button
+        type="submit"
+        className="btn purchase__btn__pay"
+        disabled={!stripe}
+      >
         Pay
       </button>
     </form>
@@ -83,9 +92,23 @@ const Purchase = () => {
   const [status, setStatus] = useState("read");
   const [error, setError] = useState("read");
   if (status === "success") {
-    return <div>Successful payed</div>;
+    return (
+      <div>
+        <p>Successfully accept payment </p>
+        <Link to="/" className="btn">
+          Go Back
+        </Link>
+      </div>
+    );
   } else if (error === "error") {
-    return <div>Erorr</div>;
+    return (
+      <div className="purchase__error">
+        <p>Issue with your card or address Please fill again </p>
+        <Link to="/" className="btn purchase__error__btn">
+          Go Back
+        </Link>
+      </div>
+    );
   }
 
   return (

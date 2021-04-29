@@ -11,6 +11,7 @@
     @include button-more($base-color, $main-color);
     @include margin-left(4px);
     font-size: large;
+    margin-bottom: 10px;
   }
 }
 

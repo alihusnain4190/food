@@ -68,7 +68,7 @@ const Cart = () => {
         <p>{totalPrice}&#163;</p>
       </div>
       <Link to="/purchase">
-        <button className="btn">Purchase</button>
+        <button className="btn btn__purchase">Purchase</button>
       </Link>
     </>
   );

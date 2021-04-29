@@ -12,6 +12,7 @@ import Login from "./Pages/Login";
 import PrivateRoute from "./Component/PrivateRoute";
 import ForgotPassword from "./Pages/ForgotPassword";
 import Purchase from "./Pages/Purchase";
+import Footer from "./Component/Footer";
 function App() {
   return (
     <div className="App">
@@ -31,6 +32,7 @@ function App() {
         <Cart path="/cart" />
         <Purchase path="/purchase" />
       </Router>
+      <Footer />
     </div>
   );
 }

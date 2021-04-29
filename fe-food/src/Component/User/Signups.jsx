@@ -10,7 +10,7 @@ const Signups = () => {
   const passwordConfirmRef = useRef();
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
- 
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -21,10 +21,13 @@ const Signups = () => {
         setLoading(true);
 
         await signup(emailRef.current.value, passwordRef.current.value);
-        const { data } = await axios.post("https://be-pizza.herokuapp.com/api/user", {
-          u_email: emailRef.current.value,
-          u_name: nameRef.current.value,
-        });
+        const { data } = await axios.post(
+          "https://be-pizza.herokuapp.com/api/user",
+          {
+            u_email: emailRef.current.value,
+            u_name: nameRef.current.value,
+          }
+        );
         setUser(data.u_name);
         navigate(`/`);
         setBool(true);
@@ -41,13 +44,18 @@ const Signups = () => {
         <div class="container">
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account. </p>
-          <label for="email">Email</label>
+          <label for="name">
+            <b>Name</b>
+          </label>
           <input
             type="text"
             ref={nameRef}
             placeholder="Enter your name"
             required
           ></input>
+          <label for="Email">
+            <b>Email</b>
+          </label>
           <input
             type="text"
             ref={emailRef}

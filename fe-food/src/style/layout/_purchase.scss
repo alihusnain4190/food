@@ -1,0 +1,21 @@
+@import "../variable/variable";
+.purchase {
+  .purchase__h4 {
+    margin-left: 10px;
+  }
+  .purchase__label {
+    margin-left: 10px;
+  }
+  .purchase__btn__pay {
+    margin: 10px;
+    padding: 20px 50px;
+    background-color: $base-color;
+    color: $main-color;
+    font-weight: bold;
+  }
+}
+.purchase__error {
+  .purchase__error__btn {
+    background-color: blue;
+  }
+}

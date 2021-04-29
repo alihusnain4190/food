@@ -26,7 +26,9 @@ const Signups = () => {
       <form onSubmit={handleSubmit}>
         <div class="container">
           <h1>Login</h1>
-          <label for="email">Email</label>
+          <label for="email">
+            <b>Email</b>
+          </label>
           <input
             type="text"
             ref={emailRef}
@@ -51,7 +53,7 @@ const Signups = () => {
               Login
             </button>
           </div>
-          <div>
+          <div className="login__forgot">
             <Link to="/forget-password">Forget Password?</Link>
           </div>
           <div className="signup__login">
