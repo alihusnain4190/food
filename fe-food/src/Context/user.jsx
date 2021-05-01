@@ -4,7 +4,7 @@ export const AuthContext = React.createContext();
 export function AuthProvider({ children }) {
   const [bool, setBool] = useState(false);
   const [currentUser, setCurrentUser] = useState();
-  const [user, setUser] = useState("Ali");
+  const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
@@ -23,13 +23,11 @@ export function AuthProvider({ children }) {
     const unsubcribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       // setUser(user);
-      console.log(user);
       //set loading to false if our user successfuly signup
       setLoading(false);
     });
     return unsubcribe;
   }, []);
-  console.log(user);
   const value = {
     currentUser,
     signup,

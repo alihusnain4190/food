@@ -19,15 +19,18 @@ const Signups = () => {
       try {
         setError("");
         setLoading(true);
+        // localStorage.removeItem("user");
 
         await signup(emailRef.current.value, passwordRef.current.value);
         const { data } = await axios.post(
-          "https://be-pizza.herokuapp.com/api/user",
+          "http://localhost:9090/api/user",
+          // "https://be-pizza.herokuapp.com/api/user",
           {
             u_email: emailRef.current.value,
             u_name: nameRef.current.value,
           }
         );
+        localStorage.setItem(data.u_name, data.u_name);
         setUser(data.u_name);
         navigate(`/`);
         setBool(true);

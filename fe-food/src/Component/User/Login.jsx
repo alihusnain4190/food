@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import { AuthContext } from "../../Context/user";
+import axios from "axios";
 const Signups = () => {
-  const { login, currentUser, setBool } = useContext(AuthContext);
+  const { login, currentUser, setBool, setUser } = useContext(AuthContext);
   const emailRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState("");
@@ -14,6 +15,10 @@ const Signups = () => {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       navigate(`/`);
+      const { data } = await axios.get(
+        `http://localhost:9090/api/user?email=${emailRef.current.value}`
+      );
+      setUser(data.u_name);
       setBool(true);
     } catch {
       setError("account is not creating");

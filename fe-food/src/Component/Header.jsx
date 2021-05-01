@@ -4,7 +4,9 @@ import { AuthContext } from "../Context/user";
 const Header = () => {
   const { bool, currentUser, logout, user } = useContext(AuthContext);
   const [error, setError] = useState("");
-  console.log(currentUser.email);
+  // console.log(user);
+  // console.log(currentUser.email);
+  console.log(localStorage.getItem("user"));
   async function handleLogout(e) {
     e.preventDefault();
     try {
