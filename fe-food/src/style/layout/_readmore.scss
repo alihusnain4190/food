@@ -15,7 +15,8 @@
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+//@media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+@media only screen and (min-width: 768px) {
   .readMore {
     margin-left: 25px;
     margin-right: 10px;
@@ -31,6 +32,32 @@
     .btn-more {
       @include button-more($base-color, $main-color);
       @include margin-left(4px);
+      font-size: large;
+    }
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+  .readMore {
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-top: 20px;
+    img {
+      margin: 8px;
+      margin-left: 50px;
+      width: 50%;
+      max-width: 1000px;
+      max-height: 400px;
+      border-radius: 5px;
+    }
+    p {
+      font-size: 20px;
+      margin-left: 50px;
+    }
+    .btn-more {
+      @include button-more($base-color, $main-color);
+      @include margin-left(50px);
       font-size: large;
     }
   }

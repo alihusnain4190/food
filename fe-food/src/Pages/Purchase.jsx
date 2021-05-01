@@ -52,7 +52,7 @@ const CheckOutForm = ({ success, errors }) => {
     <form
       onSubmit={handleSubmit}
       className="purchase"
-      style={{ maxWidth: "400", margin: "0 auto" }}
+      // style={{ maxWidth: "400", margin: "0 auto" }}
     >
       <h4 className="purchase__h4">Total Charges pay: {totalPrice}</h4>
       <label className="purchase__label" for="address">
@@ -77,7 +77,7 @@ const CheckOutForm = ({ success, errors }) => {
         ref={postCodeRef}
       />
 
-      <CardElement />
+      <CardElement  className="purchase__cardelement"/>
       <button
         type="submit"
         className="btn purchase__btn__pay"

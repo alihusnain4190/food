@@ -1,21 +1,133 @@
 @import "../variable/variable";
 .purchase {
   .purchase__h4 {
-    margin-left: 10px;
+    margin-left: 40px;
   }
   .purchase__label {
-    margin-left: 10px;
+    margin-left: 40px;
   }
   .purchase__btn__pay {
-    margin: 10px;
+    // text-align: s;
+    margin-top: 20px;
+    margin: 20px;
     padding: 20px 50px;
     background-color: $base-color;
     color: $main-color;
-    font-weight: bold;
+    display: inline-block;
+  }
+  input[type="text"] {
+    width: 80%;
+    padding: 15px;
+    margin: 10px 10px 22px 10px;
+    display: inline-block;
+    border: none;
+  }
+  .purchase__cardelement {
+    width: 80%;
+    padding: 15px;
+    margin: 10px 10px 22px 10px;
+    // display: inline-block;
+    // border: none;
   }
 }
 .purchase__error {
   .purchase__error__btn {
     background-color: blue;
+  }
+}
+// @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+@media only screen and (min-width: 768px) {
+  .purchase {
+    margin-left: 30px;
+    .purchase__h4 {
+      margin-left: 40px;
+    }
+    .purchase__label {
+      // margin-left: 40px;
+    }
+    .purchase__btn__pay {
+      // text-align: s;
+      margin-top: 20px;
+      margin: 20px;
+      padding: 20px 50px;
+      background-color: $base-color;
+      color: $main-color;
+      display: inline-block;
+    }
+    label {
+      width: 50%;
+      padding: 15px;
+      margin: 10px 10px 22px 10px;
+      display: inline-block;
+      border: none;
+    }
+    input[type="text"] {
+      // margin-left: 50px;
+      width: 70%;
+      padding: 15px;
+      margin: 10px 10px 22px 50px;
+      display: inline-block;
+      border: none;
+    }
+    .purchase__cardelement {
+      width: 70%;
+      padding: 15px;
+      margin: 10px 10px 22px 10px;
+      // display: inline-block;
+      // border: none;
+    }
+  }
+  .purchase__error {
+    .purchase__error__btn {
+      background-color: blue;
+    }
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .purchase {
+    margin-left: 100px;
+    .purchase__h4 {
+      margin-left: 40px;
+    }
+    .purchase__label {
+      // margin-left: 40px;
+    }
+    .purchase__btn__pay {
+      // text-align: s;
+      margin-top: 20px;
+      margin: 20px;
+      padding: 20px 50px;
+      background-color: $base-color;
+      color: $main-color;
+      display: inline-block;
+    }
+    label {
+      width: 50%;
+      padding: 15px;
+      margin: 10px 10px 22px 10px;
+      display: inline-block;
+      border: none;
+    }
+    input[type="text"] {
+      // margin-left: 50px;
+      width: 50%;
+      padding: 15px;
+      margin: 10px 10px 22px 50px;
+      display: inline-block;
+      border: none;
+    }
+    .purchase__cardelement {
+      width: 50%;
+      padding: 15px;
+      margin: 10px 10px 22px 10px;
+      // display: inline-block;
+      // border: none;
+    }
+  }
+  .purchase__error {
+    .purchase__error__btn {
+      background-color: blue;
+    }
   }
 }
