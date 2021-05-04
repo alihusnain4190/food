@@ -41,60 +41,50 @@ input[type="password"]:focus {
     padding: 10px 20px;
   }
 }
+/* Large devices (laptops/desktops, 992px and up) */
 
-// @media only screen and (min-device-width: 834px) and (max-device-width: 1112) {
+@media only screen and (min-width: 992px) {
+  .container {
+    margin-left: 100px;
+    padding: 16px;
+    width: 60%;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 10px 22px 10px;
+    display: inline-block;
+    border: none;
 
-//   .container {
-//     padding-left: 80px;
-//   }
-//   input[type="text"] {
-//     input[type="password"] {
-//     width: 100%;
-//     padding: 15px;
-//     margin: 10px 10px 22px 10px;
-//     display: inline-block;
-//     border: none;
-//     border-radius: 10px;
+    background: #f1f1f1;
+  }
 
-//     background: #f1f1f1;
-//   }
-//   }
-//   input[type="password"] {
-//     width: 100%;
-//     padding: 15px;
-//     margin: 10px 10px 22px 10px;
-//     display: inline-block;
-//     border: none;
-//     border-radius: 10px;
-
-//     background: #f1f1f1;
-//   }
-
-//   input[type="text"]:focus,
-//   input[type="password"]:focus {
-//     background-color: #ddd;
-//     outline: none;
-//   }
-//   .error {
-//     color: red;
-//     font-size: 22px;
-//   }
-//   .clearfix {
-//     .btn-more {
-//       @include button-more($lowernav-color, $main-color);
-//     }
-//   }
-//   .login__forgot {
-//     margin-top: 10px;
-//     margin-bottom: 10px;
-//   }
-//   .signup__login {
-//     display: flex;
-//     .btn-more {
-//       margin-left: 1rem;
-//       font-size: large;
-//       @include button-more($base-color, $main-color);
-//       padding: 10px 20px;
-//     }
-//   }
-// }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .error {
+    color: red;
+    font-size: 22px;
+  }
+  .clearfix {
+    .btn-more {
+      @include button-more($lowernav-color, $main-color);
+    }
+  }
+  .login__forgot {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .signup__login {
+    display: flex;
+    .btn-more {
+      margin-left: 1rem;
+      font-size: large;
+      @include button-more($base-color, $main-color);
+      padding: 10px 20px;
+    }
+  }
+}
