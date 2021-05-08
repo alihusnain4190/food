@@ -50,8 +50,7 @@ const PizzaList = (props) => {
           onClick={() => {
             hadnleAdd(props.item);
           }}
-        >
-          SELECT
+        >Add to basket
         </button>
       </div>
     </section>

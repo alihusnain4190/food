@@ -4,10 +4,10 @@ const LowerNavbar = () => {
   return (
     <section className="lowernavbar">
       <div>
-        <p>Vagitarian</p>
+        <p>Vegitarian</p>
       </div>
       <div>
-        <p>Vigin</p>
+        <p>Vegan</p>
       </div>
 
       <div>

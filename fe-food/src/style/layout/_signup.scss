@@ -83,6 +83,7 @@ input[type="password"]:focus {
     .btn-more {
       margin-left: 1rem;
       font-size: large;
+      margin-top: 1rem;
       @include button-more($base-color, $main-color);
       padding: 10px 20px;
     }

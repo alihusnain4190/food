@@ -1,10 +1,4 @@
-// import React from "react";
 
-// const ForgotPasswords = () => {
-//   return <div>hello</div>;
-// };
-
-// export default ForgotPasswords;
 
 import React, { useContext, useRef, useState } from "react";
 import { Link, navigate } from "@reach/router";
@@ -47,9 +41,9 @@ const ForgotPasswords = () => {
               Reset Password
             </button>
           </div>
-          <div>
-            <Link to="/login">Login</Link>
-          </div>
+          {/* <div>
+            <Link to="/login" className="btn btn-more">Login</Link>
+          </div> */}
           <div className="signup__login">
             <p>Need a account</p>
 

@@ -9,6 +9,15 @@ const Cart = () => {
     increaseItem,
     removeItem,
   } = useContext(CartContext);
+  if (carts.length === 0)
+    return (
+      <div className="cart_empty">
+        <h4>Your basket is empty &#128512; </h4>
+        <Link to="/" className="btn btn-more">
+          Go Back
+        </Link>
+      </div>
+    );
   return (
     <>
       <section className="cart">

@@ -1,3 +1,17 @@
+.cart_empty {
+  // display: flex;
+  // justify-content: space-between;
+  h4 {
+    margin-left: 5rem;
+    font-size: 30px;
+  }
+  .btn-more {
+    @include button-more($base-color, $main-color);
+    @include margin-left(5rem);
+    font-size: large;
+    margin-bottom: 2rem;
+  }
+}
 .cart {
   .cart_container {
     display: flex;
@@ -67,6 +81,20 @@
 
 // @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
 @media only screen and (min-width: 768px) {
+  .cart_empty {
+    // display: flex;
+    // justify-content: space-between;
+    h4 {
+      margin-left: 5rem;
+      font-size: 30px;
+    }
+    .btn-more {
+      @include button-more($base-color, $main-color);
+      @include margin-left(5rem);
+      font-size: large;
+      margin-bottom: 2rem;
+    }
+  }
   .cart {
     .cart_container {
       display: flex;
@@ -152,6 +180,20 @@
 /* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (min-width: 992px) {
+  .cart_empty {
+    // display: flex;
+    // justify-content: space-between;
+    h4 {
+      margin-left: 5rem;
+      font-size: 30px;
+    }
+    .btn-more {
+      @include button-more($base-color, $main-color);
+      @include margin-left(5rem);
+      font-size: large;
+      margin-bottom: 2rem;
+    }
+  }
   .cart {
     .cart_container {
       display: flex;
@@ -237,17 +279,31 @@
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  .cart_empty {
+    // display: flex;
+    // justify-content: space-between;
+    h4 {
+      margin-left: 5rem;
+      font-size: 30px;
+    }
+    .btn-more {
+      @include button-more($base-color, $main-color);
+      @include margin-left(5rem);
+      font-size: large;
+      margin-bottom: 2rem;
+    }
+  }
   .cart {
     .cart_container {
       display: flex;
       margin-top: 20px;
-      margin: 5px;
+      margin: 10px;
       td:nth-child(2) {
         margin-left: 10px;
         width: 300px;
       }
       td:nth-child(3) {
-        width: 300px;
+        width: 200px;
       }
       td:nth-child(4) {
         width: 300px;
