@@ -11,8 +11,8 @@ export default function ProductProvider({ children }) {
   const [drinks, setDrinks] = useState();
   useEffect(async () => {
     const { data } = await axios.get(
-      // "https://be-pizza.herokuapp.com/api/pizza"
-      "http://localhost:9090/api/pizza/"
+      "https://be-pizza.herokuapp.com/api/pizza"
+      // "http://localhost:9090/api/pizza/"
     );
     const drink = await axios.get("https://be-pizza.herokuapp.com/api/drink");
     const d = setDrinkSizePrice(drink.data);

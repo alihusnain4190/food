@@ -126,8 +126,13 @@
     }
   }
   .purchase__error {
+    margin: auto;
     .purchase__error__btn {
       background-color: blue;
+      @include button-more($base-color, $main-color);
+      @include margin-left(5rem);
+      font-size: large;
+      margin-bottom: 2rem;
     }
   }
 }

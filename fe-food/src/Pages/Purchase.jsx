@@ -1,6 +1,7 @@
 import { Link } from "@reach/router";
 import React, { useContext, useRef, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+
 import {
   Elements,
   CardElement,
@@ -10,9 +11,10 @@ import {
 import axios from "axios";
 import { CartContext } from "../Context/cart";
 import { AuthContext } from "../Context/user";
+// import { useState } from "react";
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 const CheckOutForm = ({ success, errors }) => {
-  const { totalPrice } = useContext(CartContext);
+  const { totalPrice, setCarts } = useContext(CartContext);
   const { user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
@@ -33,6 +35,7 @@ const CheckOutForm = ({ success, errors }) => {
       try {
         const { data } = await axios.post(
           "http://be-pizza.herokuapp.com/api/purchase",
+          // "http://localhost:9090/api/purchase",
           {
             id,
             amount: parseInt(totalPrice * 100),
@@ -41,9 +44,11 @@ const CheckOutForm = ({ success, errors }) => {
             user,
           }
         );
-        // console.log(data);
+        console.log(data);
         success();
+        setCarts([]);
       } catch (error) {
+        console.log(error);
         errors();
       }
     }
@@ -77,7 +82,7 @@ const CheckOutForm = ({ success, errors }) => {
         ref={postCodeRef}
       />
 
-      <CardElement  className="purchase__cardelement"/>
+      <CardElement className="purchase__cardelement" />
       <button
         type="submit"
         className="btn purchase__btn__pay"
@@ -91,11 +96,12 @@ const CheckOutForm = ({ success, errors }) => {
 const Purchase = () => {
   const [status, setStatus] = useState("read");
   const [error, setError] = useState("read");
+  
   if (status === "success") {
     return (
       <div>
         <p>Successfully accept payment </p>
-        <Link to="/" className="btn">
+        <Link to="/" className="btn btn-more">
           Go Back
         </Link>
       </div>

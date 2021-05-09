@@ -10,6 +10,7 @@
 @import "./style/layout/header";
 @import "./style/layout/footer.scss";
 @import "./style/layout/purchase";
+@import "./style/layout/error";
 * {
   box-sizing: border-box;
 }
@@ -17,7 +18,7 @@ body {
   background-image: url("./assets/img/background2.jpg");
   background-repeat: no-repeat;
   background-color: #cccccc;
-  background-position: center; 
+  background-position: center;
   background-size: cover;
 
   background-color: whitesmoke;

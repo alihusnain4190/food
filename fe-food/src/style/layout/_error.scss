@@ -1,0 +1,9 @@
+.error {
+  margin-left: 4rem;
+   .btn-more {
+        @include button-more($base-color, $main-color);
+        @include margin-left(50px);
+        font-size: large;
+        margin-bottom: 2rem;
+      }
+}

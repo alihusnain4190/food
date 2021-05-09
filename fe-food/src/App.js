@@ -13,6 +13,7 @@ import PrivateRoute from "./Component/PrivateRoute";
 import ForgotPassword from "./Pages/ForgotPassword";
 import Purchase from "./Pages/Purchase";
 import Footer from "./Component/Footer";
+import Error from "./Component/Error";
 function App() {
   return (
     <div className="App">
@@ -31,7 +32,9 @@ function App() {
         {/* <Customsie path="/customise" /> */}
         <Cart path="/cart" />
         <Purchase path="/purchase" />
+        <Error default />
       </Router>
+
       <Footer />
     </div>
   );

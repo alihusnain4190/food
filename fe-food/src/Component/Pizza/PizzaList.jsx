@@ -5,12 +5,13 @@ const PizzaList = (props) => {
   const { p_id, p_image, p_name, p_size } = props.item;
 
   const { hadnleAdd, pizzaSizePrice, drinkSizePrice } = useContext(CartContext);
+ 
   const handleChange = (e) => {
     pizzaSizePrice(e.target.value);
   };
-  const handleDrinkChange = (e) => {
-    drinkSizePrice(e.target.value);
-  };
+  // const handleDrinkChange = (e) => {
+  //   drinkSizePrice(e.target.value);
+  // };
   return (
     <section className="pizzaList">
       <div>
