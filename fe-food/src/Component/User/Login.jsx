@@ -16,7 +16,7 @@ const Signups = () => {
       await login(emailRef.current.value, passwordRef.current.value);
       navigate(`/`);
       const { data } = await axios.get(
-        `http://localhost:9090/api/user?email=${emailRef.current.value}`
+        `https://be-pizza.herokuapp.com/api/user?email=${emailRef.current.value}`
       );
       setUser(data.u_name);
       setBool(true);

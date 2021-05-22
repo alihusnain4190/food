@@ -23,8 +23,8 @@ const Signups = () => {
 
         await signup(emailRef.current.value, passwordRef.current.value);
         const { data } = await axios.post(
-          "http://localhost:9090/api/user",
-          // "https://be-pizza.herokuapp.com/api/user",
+          // "http://localhost:9090/api/user",
+          "https://be-pizza.herokuapp.com/api/user",
           {
             u_email: emailRef.current.value,
             u_name: nameRef.current.value,
