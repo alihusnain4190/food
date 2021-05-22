@@ -34,7 +34,7 @@ const CheckOutForm = ({ success, errors }) => {
 
       try {
         const { data } = await axios.post(
-          "http://be-pizza.herokuapp.com/api/purchase",
+          "https://be-pizza.herokuapp.com/api/purchase",
           // "http://localhost:9090/api/purchase",
           {
             id,
