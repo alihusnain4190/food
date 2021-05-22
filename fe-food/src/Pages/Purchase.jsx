@@ -15,7 +15,7 @@ import { AuthContext } from "../Context/user";
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 const CheckOutForm = ({ success, errors }) => {
   const { totalPrice, setCarts } = useContext(CartContext);
-  const { user } = useContext(AuthContext);
+  const { currentUser,user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -29,7 +29,7 @@ const CheckOutForm = ({ success, errors }) => {
       type: "card",
       card: elements.getElement(CardElement),
     });
-    if (!error) {
+    if (!error ) {
       const { id } = paymentMethod;
 
       try {
@@ -45,6 +45,8 @@ const CheckOutForm = ({ success, errors }) => {
           }
         );
         console.log(data);
+       
+
         success();
         setCarts([]);
       } catch (error) {
@@ -96,11 +98,11 @@ const CheckOutForm = ({ success, errors }) => {
 const Purchase = () => {
   const [status, setStatus] = useState("read");
   const [error, setError] = useState("read");
-  
+
   if (status === "success") {
     return (
       <div>
-        <p>Successfully accept payment </p>
+        <p className="payment__accept">Successfully accept payment </p>
         <Link to="/" className="btn btn-more">
           Go Back
         </Link>

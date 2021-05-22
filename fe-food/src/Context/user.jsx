@@ -4,7 +4,8 @@ export const AuthContext = React.createContext();
 export function AuthProvider({ children }) {
   const [bool, setBool] = useState(false);
   const [currentUser, setCurrentUser] = useState();
-  const [user, setUser] = useState("Wellcome to Pizza");
+  const [user, setUser] = useState("");
+  const [wellcome,setWellcome]=useState("Wellcome")
   const [loading, setLoading] = useState(true);
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
@@ -15,6 +16,7 @@ export function AuthProvider({ children }) {
   function logout() {
     return auth.signOut();
   }
+
   function resetPassword(email) {
     return auth.sendPasswordResetEmail(email);
   }
@@ -37,6 +39,7 @@ export function AuthProvider({ children }) {
     setBool,
     resetPassword,
     setUser,
+    wellcome,
     user,
   };
   return (

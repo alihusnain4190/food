@@ -30,9 +30,17 @@
     // border: none;
   }
 }
+.payment__accept {
+  margin-left: 10px;
+}
 .purchase__error {
   .purchase__error__btn {
-    background-color: blue;
+    margin-top: 20px;
+    margin: 20px;
+    padding: 20px 50px;
+    background-color: $base-color;
+    color: $main-color;
+    display: inline-block;
   }
 }
 // @media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
@@ -79,7 +87,12 @@
   }
   .purchase__error {
     .purchase__error__btn {
-      background-color: blue;
+      margin-top: 20px;
+      margin: 20px;
+      padding: 20px 50px;
+      background-color: $base-color;
+      color: $main-color;
+      display: inline-block;
     }
   }
 }
@@ -128,11 +141,12 @@
   .purchase__error {
     margin: auto;
     .purchase__error__btn {
-      background-color: blue;
-      @include button-more($base-color, $main-color);
-      @include margin-left(5rem);
-      font-size: large;
-      margin-bottom: 2rem;
+      margin-top: 20px;
+      margin: 20px;
+      padding: 20px 50px;
+      background-color: $base-color;
+      color: $main-color;
+      display: inline-block;
     }
   }
 }
